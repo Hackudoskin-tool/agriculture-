@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Indian Agriculture</title>
+    <style>
+        /* 1. THEME & RESPONSIVE BASICS */
+        body {
+            background-color: #f0fff0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0; /* Changed to 0 so footer hits the edges */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+         nav {
+     background: white;
+     padding: 1rem 5%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+     position: sticky;
+     top: 0;
+     z-index: 1000;
+ }
+ 
+ nav a {
+     text-decoration: none;
+     color: var(--earth-brown);
+     margin: 0 20px;
+     font-weight: 600;
+     font-size: 0.9rem;
+     text-transform: uppercase;
+     letter-spacing: 1px;
+     transition: color 0.3s;
+ }
+ 
+ nav a:hover {
+     color: var(--accent-green);
+ }
+
+        /* 2. CONTENT AREA */
+        .content {
+            flex: 1; /* Pushes footer to the bottom */
+            width: 90%; /* Responsive width */
+            max-width: 600px; /* Limits size on big screens */
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+
+        /* 3. INPUT STYLING (Kept your logic, just improved spacing) */
+        form {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px; /* Slightly larger for easier tapping on mobile */
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            box-sizing: border-box; /* VERY IMPORTANT: keeps inputs inside the box */
+        }
+
+        button {
+            background-color: #006400;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #228B22;
+        }
+
+        /* 4. FOOTER STYLING (From your home page) */
+        .farming-footer {
+            background-color: #3e2723;
+            color: #f5f5f5;
+            padding: 40px 20px;
+            font-family: 'Georgia', serif;
+            border-top: 5px solid #4e7e4e;
+            margin-top: 50px;
+        }
+
+        .footer-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap; /* Makes footer items stack on mobile */
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #5d4037;
+            margin-top: 30px;
+            padding-top: 20px;
+            font-size: 0.8em;
+        }
+
+        /* 5. MEDIA QUERIES (The 'Secret Sauce' for different screens) */
+        @media (max-width: 480px) {
+            nav a {
+                margin: 5px;
+                font-size: 14px;
+            }
+            .content {
+                width: 95%;
+                padding: 10px;
+            }
+            h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        if (localStorage.getItem("loggedIn") !== "true") {
+            alert("Please log in to access the website!");
+            window.location.href = "login.html";
+        }
+    </script>
+    
+    <nav>
+        <a href="index.html">Home</a>    
+        <a href="crops.html">Crop Types</a>    
+        <a href="contact.html">Contact Us</a>    
+        <a href="dashboard.html">Dashboard</a>
+    </nav>
+    <hr>
+    
+    <div class="content">
+        <h1>Contact Us</h1>
+        <p>Get agricultural advice from experts. Fill out the form below!</p>
+        
+        <form action="https://formspree.io/f/xkowlerv" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email ID:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="query">Type of Query:</label>
+            <select id="query" name="query" required>
+                <option value="">Select...</option>
+                <option value="seeds">Seeds</option>
+                <option value="fertilizer">Fertilizer</option>
+                <option value="weather">Weather</option>
+            </select>
+            
+            <label for="message">Detailed Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            
+            <button type="submit">Submit Inquiry</button>
+        </form>
+    </div>
+
+    <footer class="farming-footer">
+        <div class="footer-container">
+          <div class="footer-section">
+            <h3>Our Heritage</h3>
+            <p>Information compiled from various educational resources for Class 10 <strong>Social Science:</strong></p>
+          </div>
+          <div class="footer-section">
+            <h3>Resources Used</h3>
+            <ul style="list-style: none; padding: 0;">
+              <li>• NCERT Textbook</li>
+              <li>• National Geographic</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          &copy; Submitted by- ____________ of class 10 Roll no.__ .
+        </div>
+    </footer>
+</body>
+</html>
