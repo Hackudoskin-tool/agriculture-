@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agriculture Dashboard - Statistics</title>
+    <style>
+        :root {
+            --primary-green: #2d5a27;
+            --earth-brown: #3e2723;
+            --cream-bg: #f9fbf7;
+            --accent-orange: #d35400;
+        }
+
+        /* FIX 1: The "Sticky Footer" Setup */
+        html, body {
+            height: 100%; /* Ensures the browser height is captured */
+            margin: 0;
+        }
+
+        body {
+            background-color: var(--cream-bg);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: #333;
+            /* Use flexbox to push footer down */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navigation */
+         nav {
+     background: white;
+     padding: 1rem 5%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+     position: sticky;
+     top: 0;
+     z-index: 1000;
+ }
+ 
+ nav a {
+     text-decoration: none;
+     color: var(--earth-brown);
+     margin: 0 20px;
+     font-weight: 600;
+     font-size: 0.9rem;
+     text-transform: uppercase;
+     letter-spacing: 1px;
+     transition: color 0.3s;
+ }
+ 
+ nav a:hover {
+     color: var(--accent-green);
+ }
+
+        /* FIX 2: Main Wrapper */
+        .main-wrapper {
+            flex: 1 0 auto; /* This forces this div to grow and take up all empty space */
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .header-box {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* Statistic Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            text-align: center;
+            border-bottom: 4px solid var(--primary-green);
+            transition: transform 0.3s;
+        }
+        .card:hover { transform: translateY(-5px); }
+
+        .card h3 { color: var(--earth-brown); margin: 0; font-size: 1.1rem; }
+        .card .number { font-size: 2rem; font-weight: bold; color: var(--accent-orange); margin: 10px 0; }
+
+        /* Data Table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            margin-bottom: 50px;
+        }
+
+        .data-table th {
+            background: var(--primary-green);
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .data-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* Footer */
+        .farming-footer {
+            flex-shrink: 0; /* Prevents footer from shrinking */
+            background-color: var(--earth-brown);
+            color: #d7ccc8;
+            padding: 60px 20px 20px;
+        }
+
+        .footer-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            color: #a5d6a7;
+            text-transform: uppercase;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li { margin-bottom: 10px; }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #5d4037;
+            margin-top: 40px;
+            padding-top: 20px;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        if (localStorage.getItem("loggedIn") !== "true") {
+            alert("Access Denied! Please login first.");
+            window.location.href = "login.html";
+        }
+    </script>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="crops.html">Crop Types</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="dashboard.html" style="color: var(--accent-orange);">Dashboard</a>
+    </nav>
+
+    <div class="main-wrapper">
+        <div class="container">
+            <div class="header-box">
+                <h1>Agriculture Analytics Dashboard</h1>
+                <p>A quick look at India's agricultural strength and land use.</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="card">
+                    <h3>Total Arable Land</h3>
+                    <div class="number">159.7 M Ha</div>
+                    <p>2nd largest in the world</p>
+                </div>
+                <div class="card">
+                    <h3>Workforce</h3>
+                    <div class="number">~54%</div>
+                    <p>Population dependent on Agri</p>
+                </div>
+                <div class="card">
+                    <h3>GDP Contribution</h3>
+                    <div class="number">~18.8%</div>
+                    <p>Gross Value Added (GVA)</p>
+                </div>
+            </div>
+
+            <h2>Major Crop Production by State (2024-25 Data)</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Crop Category</th>
+                        <th>Leading State</th>
+                        <th>Ideal Soil Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Rice</strong></td>
+                        <td>West Bengal</td>
+                        <td>Alluvial Soil</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wheat</strong></td>
+                        <td>Uttar Pradesh</td>
+                        <td>Loamy / Alluvial</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cotton</strong></td>
+                        <td>Gujarat</td>
+                        <td>Black Soil (Regur)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tea</strong></td>
+                        <td>Assam</td>
+                        <td>Laterite Soil</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sugarcane</strong></td>
+                        <td>Uttar Pradesh</td>
+                        <td>Alluvial / Black</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer class="farming-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Our Heritage</h3>
+                <p>Curated educational resource for Class 10 Social Science students. Exploring the evolution of Indian farming.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li>NCERT: Contemporary India</li>
+                    <li>National Geographic Farming</li>
+                    <li>Sustainable Agriculture Tips</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>The Harvest</h3>
+                <p>“To walk in the fields is to walk with history.”</p>
+                <p>Based in the Fertile Valleys of India.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 | Submitted by: ____________ | Class 10, Roll No: __
+        </div>
+    </footer>
+</body>
+</html>
