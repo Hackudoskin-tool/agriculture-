@@ -1,1 +1,273 @@
-hi
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Agriculture | Heritage & Growth</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green: #2d5a27;
+            --accent-green: #4caf50;
+            --earth-brown: #3e2723;
+            --soft-white: #f9fbf9;
+            --text-gray: #444;
+        }
+
+        body {
+            background-color: var(--soft-white);
+            color: var(--text-gray);
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Modern Navigation */ 
+        nav {
+            background: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--earth-brown);
+            margin: 0 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-green);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('greenrevolution.jpg'); /* Ensure this path is correct */
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* Content Container */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Content Cards */
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 768px) {
+            .card { flex-direction: row; }
+            .card-img { width: 40%; }
+            .card-content { width: 60%; }
+            .reverse { flex-direction: row-reverse; }
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 40px;
+        }
+
+        .card-content h2 {
+            color: var(--primary-green);
+            margin-top: 0;
+        }
+
+        /* Action Buttons */
+        .btn-group {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            margin: 10px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-green);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-green);
+            transform: translateY(-2px);
+        }
+
+        .logout-btn {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        .farming-footer {
+            background-color: var(--earth-brown);
+            color: #d7ccc8;
+            padding: 60px 20px 20px;
+        }
+
+        .footer-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            color: #a5d6a7;
+            text-transform: uppercase;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #5d4037;
+            margin-top: 40px;
+            padding-top: 20px;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        if (localStorage.getItem("loggedIn") !== "true") {
+            alert("Please log in to access the website!");
+            window.location.href = "Login.html";
+        }
+    </script>
+    
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="crops.html">Crop Types</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <header class="hero">
+        <h1>Indian Agriculture</h1>
+        <p>The Backbone of Our Nation & The Legacy of Our Land</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="card">
+            <div class="card-img">
+                <img src="greenrevolution.jpg" alt="Green Revolution">
+            </div>
+            <div class="card-content">
+                <h2>The Green Revolution</h2>
+                <p>The Green Revolution in the 1960s was a turning point for India. By introducing high-yielding varieties (HYV), advanced irrigation, and modern fertilizers, India transformed from a food-deficient nation to a global agricultural powerhouse.</p>
+            </div>
+        </div>
+
+        <div class="card reverse">
+            <div class="card-img">
+                <img src="ancientruins.jpg" alt="Ancient Farming">
+            </div>
+            <div class="card-content">
+                <h2>Ancient Roots</h2>
+                <p>Farming in India dates back to the Indus Valley Civilization. From the domestication of wild grains like wheat and barley in the Neolithic Revolution to modern organic practices, our history is written in the soil.</p>
+            </div>
+        </div>
+
+        <div class="btn-group">
+            <a href="crops.html" class="btn btn-primary">Explore Crop Types</a>
+            <a href="contact.html" class="btn btn-primary">Talk to Experts</a>
+            <br><br>
+            <button class="btn logout-btn" onclick="logout()">Logout Account</button>
+        </div>
+
+    </div>
+
+    <footer class="farming-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Our Heritage</h3>
+                <p>Curated educational resource for Class 10 Social Science students. Exploring the evolution of Indian farming.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li>NCERT: Contemporary India</li>
+                    <li>National Geographic Farming</li>
+                    <li>Sustainable Agriculture Tips</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>The Harvest</h3>
+                <p>“To walk in the fields is to walk with history.”</p>
+                <p>Based in the Fertile Valleys of India.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 | Submitted by: ____________ | Class 10, Roll No: __
+        </div>
+    </footer>
+
+    <script>
+        function logout() {
+            localStorage.removeItem("loggedIn");
+            alert("Logged out successfully.");
+            window.location.href = "login.html";
+        }
+    </script>
+</body>
+</html>
